@@ -9,11 +9,11 @@
             font-family: Arial, sans-serif;
             background-color: #ffffff;
             margin-left: 10px;
-            margin-right: 10px;
+            margin-right: 50px;
         }
         
         th:nth-child(1), td:nth-child(1) {
-            width: 200px;
+            width: 5px;
         }
         th:nth-child(2), td:nth-child(2) {
             width: 150px;
@@ -54,9 +54,14 @@
       
       
         th, td {
-            padding: 8px;
+            padding: 9px;
             text-align: center;
-            border: 1px solid #b1b1b1;
+            border: 2px solid #b1b1b1;
+        }
+
+        .flow {
+            text-overflow: clip;
+            width: 1px;
         }
 
         td {
@@ -71,7 +76,7 @@
         }
         .header {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
         th:first-child, td:first-child {
             text-align: left;
@@ -112,7 +117,7 @@
                 </tr>
                 <tr class="blank-row-head"></tr>
                 <tr>
-                    <td>Kondotty</td>
+                    <td class="flow">Kondotty</td>
                     <td>₹ 200</td>
                     <td>₹ 300</td>
                     <td>-</td>
@@ -235,7 +240,7 @@
                     <td>-</td>
                 </tr>
                 <tr>
-                    <td>Sulthan Batheri - Mananthavady</td>
+                    <td class="flow">Sulthan Batheri - Mananthavady</td>
                     <td>₹ 4,000</td>
                     <td>₹ 4,300</td>
                     <td>₹ 5,100</td>

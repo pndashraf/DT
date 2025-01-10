@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DT Vehicle Fare</title>
+    <title>Fare Table</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -37,7 +37,12 @@
         }
 
         @media (max-width: 600px) {
-            
+            table, th, td {
+                font: 14px;
+            }
+            td {
+                max-width: 100px;
+            }
         }
       
 
@@ -52,9 +57,15 @@
       
       
         th, td {
-            padding: 12px;
+            padding: 8px;
             text-align: center;
             border: 1px solid #b1b1b1;
+        }
+
+        td {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
        
         tr:nth-child(even) {

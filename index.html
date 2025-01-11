@@ -2,22 +2,82 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fare Table</title>
+    <meta name="viewport" content="width=device-width, initial-scale=0.74">
+    <title>DT Fare Table</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #ffffff;
-            margin-left: 100px;
-            margin-right: 500px;
+            margin-left:20px;
+            margin-right:5px;
         }
 
+        .header-image-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin: 0.1cm;
+        }
+
+        .image-grid {
+            size: 10px;
+            display:grid;
+            grid-template-columns: 110px;
+        }
+
+        .image-grid img {
+            max-width: 100%;
+            height: auto;
+            
+        }
+
+/*spacing for each column, and no wraping certain columns*/
+        th:nth-child(1), td:nth-child(1) {
+            width: 15px;
+        }
+        th:nth-child(2), td:nth-child(2) {
+            width: 95px;
+            white-space: nowrap;
+        }
+        th:nth-child(3), td:nth-child(3) {
+            width: 95px;
+            white-space: nowrap;
+        }
+        th:nth-child(4), td:nth-child(4) {
+            width: 100px;
+        }
+        th:nth-child(5), td:nth-child(5) {
+            width: 150px;
+        }
+
+/*this is background colour for header*/
+        th:nth-child(1), th:nth-child(1) {
+            background-color: rgb(255, 127, 127);
+        }
+        th:nth-child(2), th:nth-child(2) {
+            background-color: rgb(255, 127, 127);
+        }
+        th:nth-child(3), th:nth-child(3) {
+            background-color: rgb(255, 127, 127);
+        }
+        th:nth-child(4), th:nth-child(4) {
+            background-color: rgb(255, 127, 127);
+        }
+        th:nth-child(5), th:nth-child(5) {
+            background-color: rgb(255, 127, 127);
+        }
+
+        
+        table {
+            border-collapse: collapse;
+        }
+
+        
         .thead {
             font-size: 15px;
         }
-      
 
-
+ /*freeze pane for header row*/
         th {
             position: sticky;
             top:0;
@@ -28,36 +88,45 @@
       
       
         th, td {
-            padding: 9px;
+            width: 10px;
+            padding: 7px;
             text-align: center;
-            border: 2px solid #a81b1b;
+            border: 1px solid black
         }
 
-      
-        td {
-            white-space: nowrap;
-            overflow:visible;
-            text-overflow:clip;
-        }
-       
-        tr:nth-child(even) {
-            background-color: #ffffff;
-            
-        }
         .header {
-            text-align: center;
-            margin-bottom: 10px;
+            padding: 0.1px;
+            text-align: left;
+            margin-bottom: 1px;
+            margin-left: 22px;
+            margin-right: 1450px;
+            size: 1px;
+            display: grid;
+            grid-template-columns: 400px
         }
+
         th:first-child, td:first-child {
             text-align: left;
+
         }
         
+        
         .blank-row-head {
-            height: 25px;
+            height: 15px;
         }
+
+        
 
         .blank-row {
             height: 9px;
+        }
+
+        .blank-row-right {
+            border: #ffffff;
+        }
+
+        p {
+            padding: 1px;
         }
 
   
@@ -69,21 +138,29 @@
     </style>
 </head>
 <body>
-
-    <div class="header">
-        <h1>DT Vehicle Fare</h1>
-        <p>Updated: January 2025</p>
+    <div class="header-image-container">
+        <div class="image-grid">
+            <img src="Screenshot 2025-01-11 081801.png">
+        </div>
+        
+    
+        <div class="header">
+            <h1>DT Vehicle Fare</h1>
+            <p>Updated: January 2025</p>
+        </div>
     </div>
 
-    <div class="table-wrapper">
         <table>
+        
+
             <thead class="thead">
                 <tr>
                     <th>PLACES</th>
-                    <th>GOODS/JETO</th>
+                    <th>JETO</th>
                     <th>CNG</th>
                     <th>DOSTH/ BOLERO</th>
                     <th>6 WHEEL</th>
+                    <th class="blank-row-right"></th>
                 </tr>
                 <tr class="blank-row-head"></tr>
                 <tr>
@@ -247,7 +324,7 @@
                     <td>₹ 21,000</td>
                 </tr>
         </table>
-    </div>
+ 
     
                        <!-- Add more rows here as needed -->
      

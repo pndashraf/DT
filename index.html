@@ -8,151 +8,105 @@
         body {
             font-family: Arial, sans-serif;
             background-color: #ffffff;
-            margin-left:20px;
-            margin-right:5px;
+            margin: 20px;
         }
 
+        /* --- HEADER STYLES --- */
         .header-image-container {
             display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin: 0.1cm;
-        }
-
-        .image-grid {
-            size: 10px;
-            display:grid;
-            grid-template-columns: 110px;
+            justify-content: flex-start;
+            align-items: center;
+            margin-bottom: 20px;
+            gap: 20px;
         }
 
         .image-grid img {
-            max-width: 100%;
+            width: 110px;
             height: auto;
-            
         }
 
-/*spacing for each column, and no wraping certain columns*/
-        th:nth-child(1), td:nth-child(1) {
-            width: 20px;
-        }
-        th:nth-child(2), td:nth-child(2) {
-            width: 95px;
-            white-space: nowrap;
-        }
-        th:nth-child(3), td:nth-child(3) {
-            width: 95px;
-            white-space: nowrap;
-        }
-        th:nth-child(4), td:nth-child(4) {
-            width: 100px;
-        }
-        th:nth-child(5), td:nth-child(5) {
-            width: 150px;
+        .header h1 {
+            margin: 0;
+            font-size: 2em;
         }
 
-/*this is background colour for header*/
-        th:nth-child(1), th:nth-child(1) {
-            background-color: rgb(255, 127, 127);
-        }
-        th:nth-child(2), th:nth-child(2) {
-            background-color: rgb(255, 127, 127);
-        }
-        th:nth-child(3), th:nth-child(3) {
-            background-color: rgb(255, 127, 127);
-        }
-        th:nth-child(4), th:nth-child(4) {
-            background-color: rgb(255, 127, 127);
-        }
-        th:nth-child(5), th:nth-child(5) {
-            background-color: rgb(255, 127, 127);
+        .header p {
+            margin: 5px 0 0 0;
+            font-size: 1.1em;
+            color: #333;
         }
 
-        
+        /* --- LAYOUT CONTAINER (Holds both tables side-by-side) --- */
+        .content-container {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start; /* Aligns both tables to the top */
+            gap: 30px; /* Space between the two tables */
+        }
+
+        /* --- TABLE STYLING --- */
         table {
             border-collapse: collapse;
+            font-size: 14px;
         }
 
-        
-        .thead {
-            font-size: 15px;
-        }
-
- /*freeze pane for header row*/
-        th {
-            position: sticky;
-            top:0;
-            background-color: #ffffff;
-            text-align: center;
-            z-index: 1;
-        }
-      
-      
         th, td {
-            width: 10px;
+            border: 1px solid black;
             padding: 7px;
             text-align: center;
-            border: 1px solid black
         }
 
-        .header {
-            padding: 0.1px;
-            text-align: left;
-            margin-bottom: 1px;
-            margin-left: 22px;
-            margin-right: 1450px;
-            size: 1px;
-            display: grid;
-            grid-template-columns: 400px
+        /* Header Color (Pink/Red) */
+        th {
+            background-color: rgb(255, 127, 127);
+            position: sticky;
+            top: 0;
+            z-index: 1;
         }
 
-        th:first-child, td:first-child {
-            text-align: left;
+        /* Column Widths for Main Table */
+        .main-table th:nth-child(1), .main-table td:nth-child(1) { width: 200px; text-align: left; font-weight: bold; } /* Destination */
+        .main-table th:nth-child(2), .main-table td:nth-child(2) { width: 95px; }
+        .main-table th:nth-child(3), .main-table td:nth-child(3) { width: 95px; }
+        .main-table th:nth-child(4), .main-table td:nth-child(4) { width: 100px; }
+        .main-table th:nth-child(5), .main-table td:nth-child(5) { width: 100px; }
 
+        /* Utility Classes */
+        .blank-row-head { height: 15px; border: none; }
+        .blank-row { height: 9px; }
+        .blank-row td { border: none; }
+
+        /* --- SIDE TABLE STYLING --- */
+        .side-table-wrapper {
+            margin-top: 50px; /* Pushes the side table down slightly to align with data */
+        }
+
+        .side-table th {
+            background-color: rgb(255, 127, 127); /* Matches main table */
+            color: black;
         }
         
-        
-        .blank-row-head {
-            height: 15px;
-        }
-
-        
-
-        .blank-row {
-            height: 9px;
-        }
-
-        .blank-row-right {
-            border: #ffffff;
-        }
-
-        p {
-            padding: 1px;
-        }
-
-  
-
-       
-
-       
+        .side-table td:nth-child(1) { text-align: left; width: 180px; } /* Description */
+        .side-table td:nth-child(2) { font-weight: bold; }
+        .side-table td:nth-child(3) { font-weight: bold; }
 
     </style>
 </head>
 <body>
+
     <div class="header-image-container">
         <div class="image-grid">
-            <img src="Screenshot 2025-01-11 081801.png">
+            <img src="Screenshot 2025-01-11 081801.png" alt="Logo">
         </div>
-        
-    
         <div class="header">
             <h1>DT Vehicle Fare</h1>
-            <p>For the Year:  2025-2026</p>
+            <p>For the Year: 2025-2026</p>
         </div>
     </div>
 
-        <table>
-        
+    <div class="content-container">
 
+        <table class="main-table">
             <thead class="thead">
                 <tr>
                     <th>DESTINATION</th>
@@ -160,201 +114,88 @@
                     <th>CNG</th>
                     <th>V30/ DOSTH</th>
                     <th>V70</th>
-                    <th class="blank-row-right"></th>
                 </tr>
-                <tr class="blank-row-head"></tr>
-                <tr>
-                    <td class="flow">Kondotty</td>
-                    <td>₹ 200</td>
-                    <td>₹ 300</td>
-                    <td>-</td>
-                    <td>-</td>
-                </tr>
-                <tr>
-                    <td>Areekad PKS</td>
-                    <td>₹ 700</td>
-                    <td>₹ 900</td>
-                    <td>₹ 1,350</td>
-                    <td>₹ 1,500</td>
-                </tr>
-                <tr>
-                    <td>Calicut</td>
-                    <td>₹ 1,000</td>
-                    <td>₹ 1,200</td>
-                    <td>₹ 1,500</td>
-                    <td>₹ 1,650</td>      
-                </tr>
-                <tr>
-                    <td>Mukkam</td>
-                    <td>₹ 1,000</td>
-                    <td>₹ 1,200</td>
-                    <td>₹ 1,500</td>
-                    <td>₹ 1,650</td>
-                </tr>
-                <tr class="blank-row"></tr>
-                <tr>
-                    <td>Manjeri</td>
-                    <td>₹ 1,000</td>
-                    <td>₹ 1,200</td>
-                    <td>₹ 1,500</td>
-                    <td>₹ 1,650</td>
-                </tr>
-                <tr>
-                    <td>Malappuram</td>
-                    <td>₹ 1,100</td>
-                    <td>₹ 1,300</td>
-                    <td>₹ 1,650</td>
-                    <td>₹ 1,800</td>
-                </tr>
-                <tr>
-                    <td>Kottakkal</td>
-                    <td>₹ 1,000</td>
-                    <td>₹ 1,200</td>
-                    <td>₹ 1,500</td>
-                    <td>₹ 1,650</td>
-                </tr>
-                <tr>
-                    <td>Manjeri-Kottakkal</td>
-                    <td>₹ 1,500</td>
-                    <td>₹ 1,700</td>
-                    <td>₹ 2,500</td>
-                    <td>₹ 2,650</td>
-                </tr>
-                <tr>
-                    <td>Tanalur</td>
-                    <td>₹ 1,050</td>
-                    <td>₹ 1,250</td>
-                    <td>₹ 1,550</td>
-                    <td>₹ 1,700</td>
-                </tr>
-                <tr>
-                    <td>Tirur</td>
-                    <td>₹ 1,200</td>
-                    <td>₹ 1,400</td>
-                    <td>₹ 1,800</td>
-                    <td>₹ 1,950</td>
-                </tr>
-                <tr class="blank-row"></tr>
-                <tr>
-                    <td>Edappal</td>
-                    <td>₹ 2,000</td>
-                    <td>₹ 2,300</td>
-                    <td>₹ 3,000</td>
-                    <td>₹ 3,100</td>
-                </tr>
-                 <tr>
-                    <td>Kotakkal/Tanalur-Edappal</td>
-                    <td>₹ 2,400</td>
-                    <td>₹ 2,700</td>
-                    <td>₹ 3,550</td>
-                    <td>₹ 3,600</td>
-                </tr>
-                <tr>
-                    <td>Thrissur</td>
-                    <td>₹ 3,300</td>
-                    <td>₹ 3,800</td>
-                    <td>₹ 4,800</td>
-                    <td>₹ 4,800</td>
-                </tr>
-                <tr>
-                    <td>Chalakkudy</td>
-                    <td>₹ 4,200</td>
-                    <td>₹ 4,700</td>
-                    <td>₹ 6,300</td>
-                    <td>₹ 6,300</td>
-                </tr>
-                <tr class="blank-row"></tr>
-                <tr>
-                    <td>Thalassery</td>
-                    <td>₹ 2,800</td>
-                    <td>₹ 3,300</td>
-                    <td>₹ 4,300</td>
-                    <td>₹ 4,300</td>
-                </tr>
-                <tr>
-                    <td>Kannur</td>
-                    <td>₹ 3,500</td>
-                    <td>₹ 3,950</td>
-                    <td>₹ 5,100</td>
-                    <td>₹ 5,100</td>
-                </tr>
-                <tr>
-                    <td>Thaliparamb</td>
-                    <td>₹ 4,200</td>
-                    <td>₹ 4,700</td>
-                    <td>₹ 6,300</td>
-                    <td>₹ 6,300</td>
-                </tr>
-                <tr class="blank-row"></tr>
-                <tr>
-                    <td>Kalpeta</td>
-                    <td>₹ 2,200</td>
-                    <td>₹ 2,600</td>
-                    <td>₹ 3,600</td>
-                    <td>₹ 3,600</td>
-                </tr>
-                <tr>
-                    <td>Sulthan Batheri</td>
-                    <td>₹ 3,300</td>
-                    <td>₹ 3,500</td>
-                    <td>₹ 4,600</td>
-                    <td>₹ 4,600</td>
-                </tr>
-                <tr>
-                    <td>Mananthavady</td>
-                    <td>₹ 3,300</td>
-                    <td>₹ 3,500</td>
-                    <td>₹ 4,700</td>
-                    <td>₹ 4,700</td>
-                </tr>
-                <tr>
-                    <td class="flow">Sulthan Batheri - Mananthavady</td>
-                    <td>₹ 4,000</td>
-                    <td>₹ 4,300</td>
-                    <td>₹ 5,100</td>
-                    <td>₹ 5,100</td>
-                </tr>
-                <tr class="blank-row"></tr>
-                <tr>
-                    <td>Eranakulam</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>₹ 7,500</td>
-                    <td>₹ 7,500</td>
-                </tr>
-                <tr>
-                    <td>Thodupuzha</td>
-                    <td>₹ 6,000</td>
-                    <td>-</td>
-                    <td>₹ 7,700</td>
-                    <td>₹ 7,700</td>
-                </tr>
-                <tr class="blank-row"></tr>
-                <tr>
-                    <td>Kayamkulam</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>₹ 9,200</td>
-                    <td>₹ 9,200</td>
-                </tr>
-                <tr>
-                    <td>Thiruvananthapuram</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>₹ 15,000</td>
-                    <td>₹ 15,000</td>
-                </tr>
+            </thead>
+            <tbody>
+                <tr class="blank-row-head"><td colspan="5" style="border:none;"></td></tr>
+                
+                <tr><td>Kondotty</td><td>₹ 200</td><td>₹ 300</td><td>-</td><td>-</td></tr>
+                <tr><td>Areekad PKS</td><td>₹ 700</td><td>₹ 900</td><td>₹ 1,350</td><td>₹ 1,500</td></tr>
+                <tr><td>Calicut</td><td>₹ 1,000</td><td>₹ 1,200</td><td>₹ 1,500</td><td>₹ 1,650</td></tr>
+                <tr><td>Mukkam</td><td>₹ 1,000</td><td>₹ 1,200</td><td>₹ 1,500</td><td>₹ 1,650</td></tr>
+                
+                <tr class="blank-row"><td colspan="5"></td></tr>
+
+                <tr><td>Manjeri</td><td>₹ 1,000</td><td>₹ 1,200</td><td>₹ 1,500</td><td>₹ 1,650</td></tr>
+                <tr><td>Malappuram</td><td>₹ 1,100</td><td>₹ 1,300</td><td>₹ 1,650</td><td>₹ 1,800</td></tr>
+                <tr><td>Kottakkal</td><td>₹ 1,000</td><td>₹ 1,200</td><td>₹ 1,500</td><td>₹ 1,650</td></tr>
+                <tr><td>Manjeri-Kottakkal</td><td>₹ 1,500</td><td>₹ 1,700</td><td>₹ 2,500</td><td>₹ 2,650</td></tr>
+                <tr><td>Tanalur</td><td>₹ 1,050</td><td>₹ 1,250</td><td>₹ 1,550</td><td>₹ 1,700</td></tr>
+                <tr><td>Tirur</td><td>₹ 1,200</td><td>₹ 1,400</td><td>₹ 1,800</td><td>₹ 1,950</td></tr>
+
+                <tr class="blank-row"><td colspan="5"></td></tr>
+
+                <tr><td>Edappal</td><td>₹ 2,000</td><td>₹ 2,300</td><td>₹ 3,000</td><td>₹ 3,100</td></tr>
+                <tr><td>Kotakkal/Tanalur-Edappal</td><td>₹ 2,400</td><td>₹ 2,700</td><td>₹ 3,550</td><td>₹ 3,600</td></tr>
+                <tr><td>Thrissur</td><td>₹ 3,300</td><td>₹ 3,800</td><td>₹ 4,800</td><td>₹ 4,800</td></tr>
+                <tr><td>Chalakkudy</td><td>₹ 4,200</td><td>₹ 4,700</td><td>₹ 6,300</td><td>₹ 6,300</td></tr>
+
+                <tr class="blank-row"><td colspan="5"></td></tr>
+
+                <tr><td>Thalassery</td><td>₹ 2,800</td><td>₹ 3,300</td><td>₹ 4,300</td><td>₹ 4,300</td></tr>
+                <tr><td>Kannur</td><td>₹ 3,500</td><td>₹ 3,950</td><td>₹ 5,100</td><td>₹ 5,100</td></tr>
+                <tr><td>Thaliparamb</td><td>₹ 4,200</td><td>₹ 4,700</td><td>₹ 6,300</td><td>₹ 6,300</td></tr>
+
+                <tr class="blank-row"><td colspan="5"></td></tr>
+
+                <tr><td>Kalpeta</td><td>₹ 2,200</td><td>₹ 2,600</td><td>₹ 3,600</td><td>₹ 3,600</td></tr>
+                <tr><td>Sulthan Batheri</td><td>₹ 3,300</td><td>₹ 3,500</td><td>₹ 4,600</td><td>₹ 4,600</td></tr>
+                <tr><td>Mananthavady</td><td>₹ 3,300</td><td>₹ 3,500</td><td>₹ 4,700</td><td>₹ 4,700</td></tr>
+                <tr><td>Sulthan Batheri - Mananthavady</td><td>₹ 4,000</td><td>₹ 4,300</td><td>₹ 5,100</td><td>₹ 5,100</td></tr>
+
+                <tr class="blank-row"><td colspan="5"></td></tr>
+
+                <tr><td>Eranakulam</td><td>-</td><td>-</td><td>₹ 7,500</td><td>₹ 7,500</td></tr>
+                <tr><td>Thodupuzha</td><td>₹ 6,000</td><td>-</td><td>₹ 7,700</td><td>₹ 7,700</td></tr>
+
+                <tr class="blank-row"><td colspan="5"></td></tr>
+
+                <tr><td>Kayamkulam</td><td>-</td><td>-</td><td>₹ 9,200</td><td>₹ 9,200</td></tr>
+                <tr><td>Thiruvananthapuram</td><td>-</td><td>-</td><td>₹ 15,000</td><td>₹ 15,000</td></tr>
+            </tbody>
         </table>
- 
-    
-                       <!-- Add more rows here as needed -->
-     
 
-</body>
+        <div class="side-table-wrapper">
+            <table class="side-table">
+                <thead>
+                    <tr>
+                        <th colspan="3">EXTRA STOP CHARGES</th>
+                    </tr>
+                    <tr>
+                        <th>Stop Type</th>
+                        <th>JETO/CNG</th>
+                        <th>V30/V70</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>On-Route / Highway</strong><br><small>(e.g. VK Padi, Drop-off)</small></td>
+                        <td>₹ 150</td>
+                        <td>₹ 200</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Town / Interior</strong><br><small>(e.g. Kottakkal, Tanalur)</small></td>
+                        <td>₹ 250</td>
+                        <td>₹ 350</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Major Detour</strong><br><small>(> 5km deviation)</small></td>
+                        <td>₹ 400</td>
+                        <td>₹ 600</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div> </body>
 </html>
-
-
-
-
-
-
